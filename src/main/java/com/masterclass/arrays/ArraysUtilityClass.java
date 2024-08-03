@@ -37,6 +37,8 @@ public class ArraysUtilityClass {
         Arrays.parallelSort(Arrays.copyOf(arr1, arr1.length));
         System.out.println("parallel sort took: "+ (System.nanoTime() - parallelStart));
 
+
+
     }
 
     public static int[] getRandomArray(int len){
