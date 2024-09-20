@@ -36,5 +36,39 @@ public class Main {
         Collections.copy(cards, kingsOfClubs);
         Card.printDeck(cards, "Cards Collection with king copied", 1);
 
+        // Collections.shuffle method
+        Collections.shuffle(deck);
+        Card.printDeck(deck, "Shuffled deck", 4);
+
+        // Collections.reverse method
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Reversed Shuffled deck", 4);
+
+        // Collections.sort is same as list.sort as internally implements the same
+        var sortingAlgo = Comparator.comparing(Card::rank).thenComparing(Card::rank);
+        Collections.sort(deck,sortingAlgo);
+        Card.printDeck(deck, "Sorted Deck by rank and suit", 4);
+
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Sorted Deck reversed by rank and suit", 4);
+
+        // Collectins.subList method
+        List<Card> kings = new ArrayList<>(deck.subList(4,8));
+        Card.printDeck(kings, "Kings in deck", 1);
+
+        List<Card> tens = new ArrayList<>(deck.subList(16,20));
+        Card.printDeck(tens, "tens in deck", 1);
+
+        // Collections.indexOfSubList
+        int indexOfTens = Collections.indexOfSubList(deck, tens);
+        System.out.println("index of tens in deck: "+ indexOfTens);
+        System.out.println("deck contains tens: "+ deck.containsAll(tens));
+
+        // Collections.disjoint
+        boolean disjoint = Collections.disjoint(deck,tens);
+        System.out.println("Tens is disjoint with deck: " +disjoint);
+
+        boolean disjoint2 = Collections.disjoint(kings,tens);
+        System.out.println("Tens is disjoint with deck: " +disjoint2);
     }
 }
