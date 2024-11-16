@@ -21,6 +21,6 @@ public class Main {
         list.addLast("Hobart");
 
         // Queue methods
-
+        list.reversed();
     }
 }
